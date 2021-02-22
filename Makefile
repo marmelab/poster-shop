@@ -7,9 +7,16 @@ help:
 
 install: ## Install project's dependencies
 	@echo "Install project deps"
+	docker-compose run --rm poster-shop yarn install
 
 start: ## Start project
 	@echo "Start the project"
+	docker-compose up -d
+
+
+stop: ## Start project
+	@echo "Start the project"
+	docker-compose down
 
 test: ## Launch the project's tests
 	@echo "Launch the tests"
