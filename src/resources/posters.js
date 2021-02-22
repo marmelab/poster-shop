@@ -17,7 +17,7 @@ const PosterslFilter = (props) => (
 );
 export const PostersList = (props) => (
     <List filters={<PosterslFilter />} {...props}>
-        <Datagrid rowClick="edit">
+        <Datagrid rowClick="show">
             <TextField source="reference" />
             <NumberField source="width" />
             <NumberField source="height" />

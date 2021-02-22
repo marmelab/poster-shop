@@ -20,11 +20,15 @@ const OrdersFilter = (props) => (
 );
 export const OrderList = (props) => (
     <List filters={<OrdersFilter />} {...props}>
-        <Datagrid rowClick="edit">
+        <Datagrid rowClick="show">
             <TextField source="id" />
             <TextField source="reference" />
             <DateField source="date" />
-            <ReferenceField source="customer_id" reference="customers">
+            <ReferenceField
+                source="customer_id"
+                reference="customers"
+                link="show"
+            >
                 <TextField source="id" />
             </ReferenceField>
             <NumberField source="total_ex_taxes" />
@@ -44,7 +48,11 @@ export const OrderShow = (props) => (
             <TextField source="id" />
             <TextField source="reference" />
             <DateField source="date" />
-            <ReferenceField source="customer_id" reference="customers">
+            <ReferenceField
+                source="customer_id"
+                reference="customers"
+                link="show"
+            >
                 <TextField source="id" />
             </ReferenceField>
             <NumberField source="total_ex_taxes" />

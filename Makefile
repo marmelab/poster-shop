@@ -20,3 +20,11 @@ stop: ## Start project
 
 test: ## Launch the project's tests
 	@echo "Launch the tests"
+
+deploy:
+	rsync --delete -r -e "ssh -i ${pem}" --filter=':- .gitignore' \
+	./ ${user}@${host}:~/poster-shop
+	ssh -i ${pem} ${user}@${host} \
+	'cd poster-shop &&\
+	make install &&\
+	make start'

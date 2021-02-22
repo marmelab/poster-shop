@@ -22,13 +22,25 @@ export const ReviewList = (props) => (
             <TextField source="id" />
             <DateField source="date" />
             <TextField source="status" />
-            <ReferenceField source="command_id" reference="orders">
+            <ReferenceField
+                source="command_id"
+                reference="commands"
+                link="show"
+            >
                 <TextField source="id" />
             </ReferenceField>
-            <ReferenceField source="product_id" reference="posters">
-                <TextField source="id" />
+            <ReferenceField
+                source="product_id"
+                reference="products"
+                link="show"
+            >
+                <TextField source="reference" />
             </ReferenceField>
-            <ReferenceField source="customer_id" reference="customers">
+            <ReferenceField
+                source="customer_id"
+                reference="customers"
+                link="show"
+            >
                 <TextField source="id" />
             </ReferenceField>
             <NumberField source="rating" />
@@ -42,13 +54,25 @@ export const ReviewShow = (props) => (
             <TextField source="id" />
             <DateField source="date" />
             <TextField source="status" />
-            <ReferenceField source="command_id" reference="orders">
+            <ReferenceField
+                source="command_id"
+                reference="commands"
+                link="show"
+            >
                 <TextField source="id" />
             </ReferenceField>
-            <ReferenceField source="product_id" reference="posters">
+            <ReferenceField
+                source="product_id"
+                reference="products"
+                link="show"
+            >
                 <TextField source="reference" />
             </ReferenceField>
-            <ReferenceField source="customer_id" reference="customers">
+            <ReferenceField
+                source="customer_id"
+                reference="customers"
+                link="show"
+            >
                 <TextField source="id" />
             </ReferenceField>
             <NumberField source="rating" />

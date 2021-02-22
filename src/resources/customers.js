@@ -22,7 +22,7 @@ const CustomersFilter = (props) => (
 
 export const CustomerList = (props) => (
     <List filters={<CustomersFilter />} {...props}>
-        <Datagrid rowClick="edit">
+        <Datagrid rowClick="show">
             <TextField source="first_name" />
             <TextField source="last_name" />
             <EmailField source="email" />
