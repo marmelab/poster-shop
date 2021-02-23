@@ -1,20 +1,15 @@
+import generateData from "data-generator-retail";
 import fakeDataProvider from "ra-data-fakerest";
 import React from "react";
 import { Admin, Resource } from "react-admin";
-import data from "./data/data.json";
+import { authProvider } from "./providers/authProvider";
 import { CustomerList, CustomerShow } from "./resources/customers.js";
 import { OrderList, OrderShow } from "./resources/orders.js";
 import { PosterShow, PostersList } from "./resources/posters";
 import { ReviewList, ReviewShow } from "./resources/reviews.js";
 
-console.dir(data);
-const dataProvider = fakeDataProvider({
-    products: data.products,
-    commands: data.commands,
-    customers: data.customers,
-    reviews: data.reviews,
-    categories: data.categories,
-});
+const data = generateData();
+const dataProvider = fakeDataProvider(data);
 
 function App() {
     return (

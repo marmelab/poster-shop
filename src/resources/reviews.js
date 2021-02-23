@@ -5,15 +5,15 @@ import {
     List,
     NumberField,
     ReferenceField,
+    SearchInput,
     Show,
     SimpleShowLayout,
     TextField,
-    TextInput,
 } from "react-admin";
 
 const ReviewsFilter = (props) => (
     <Filter {...props}>
-        <TextInput label="Search" source="q" alwaysOn />
+        <SearchInput source="q" alwaysOn />
     </Filter>
 );
 export const ReviewList = (props) => (

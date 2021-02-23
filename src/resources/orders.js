@@ -6,16 +6,16 @@ import {
     List,
     NumberField,
     ReferenceField,
+    SearchInput,
     Show,
     ShowButton,
     SimpleShowLayout,
     TextField,
-    TextInput,
 } from "react-admin";
 
 const OrdersFilter = (props) => (
     <Filter {...props}>
-        <TextInput label="Search" source="q" alwaysOn />
+        <SearchInput source="q" alwaysOn />
     </Filter>
 );
 export const OrderList = (props) => (

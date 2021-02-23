@@ -7,16 +7,16 @@ import {
     ImageField,
     List,
     NumberField,
+    SearchInput,
     Show,
     ShowButton,
     SimpleShowLayout,
     TextField,
-    TextInput,
 } from "react-admin";
 
 const CustomersFilter = (props) => (
     <Filter {...props}>
-        <TextInput label="Search" source="q" alwaysOn />
+        <SearchInput source="q" alwaysOn />
     </Filter>
 );
 
