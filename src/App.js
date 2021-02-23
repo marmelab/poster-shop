@@ -3,6 +3,14 @@ import fakeDataProvider from "ra-data-fakerest";
 import React from "react";
 import { Admin, Resource } from "react-admin";
 import { authProvider } from "./providers/authProvider.js";
+import { CustomerList } from "./resources/customers/CustomersList.js";
+import { CustomerShow } from "./resources/customers/CustomersShow.js";
+import { OrderList } from "./resources/orders/OrderList";
+import { OrderShow } from "./resources/orders/OrdersShow.js";
+import { PostersList } from "./resources/posters/PostersList";
+import { PosterShow } from "./resources/posters/PostersShow";
+import { ReviewList } from "./resources/reviews/ReviewList";
+import { ReviewShow } from "./resources/reviews/ReviewsShow.js";
 
 const data = generateData();
 const dataProvider = fakeDataProvider(data);

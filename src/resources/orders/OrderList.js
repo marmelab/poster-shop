@@ -2,22 +2,14 @@ import {
     BooleanField,
     Datagrid,
     DateField,
-    Filter,
     List,
     NumberField,
     ReferenceField,
-    SearchInput,
-    Show,
     ShowButton,
-    SimpleShowLayout,
     TextField,
 } from "react-admin";
+import { OrdersFilter } from "./OrdersFilter";
 
-const OrdersFilter = (props) => (
-    <Filter {...props}>
-        <SearchInput source="q" alwaysOn />
-    </Filter>
-);
 export const OrderList = (props) => (
     <List filters={<OrdersFilter />} {...props}>
         <Datagrid rowClick="show">
@@ -41,27 +33,4 @@ export const OrderList = (props) => (
             <ShowButton />
         </Datagrid>
     </List>
-);
-export const OrderShow = (props) => (
-    <Show {...props}>
-        <SimpleShowLayout>
-            <TextField source="id" />
-            <TextField source="reference" />
-            <DateField source="date" />
-            <ReferenceField
-                source="customer_id"
-                reference="customers"
-                link="show"
-            >
-                <TextField source="id" />
-            </ReferenceField>
-            <NumberField source="total_ex_taxes" />
-            <NumberField source="delivery_fees" />
-            <NumberField source="tax_rate" />
-            <NumberField source="taxes" />
-            <NumberField source="total" />
-            <TextField source="status" />
-            <BooleanField source="returned" />
-        </SimpleShowLayout>
-    </Show>
 );
