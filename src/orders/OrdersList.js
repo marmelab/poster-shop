@@ -10,7 +10,7 @@ import {
 } from "react-admin";
 import { OrdersFilter } from "./OrdersFilter";
 
-export const OrderList = (props) => (
+export const OrdersList = (props) => (
     <List filters={<OrdersFilter />} {...props}>
         <Datagrid rowClick="show">
             <TextField source="id" />

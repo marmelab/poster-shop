@@ -8,7 +8,7 @@ import {
     TextField,
 } from "react-admin";
 
-export const CustomerShow = (props) => (
+export const CustomersShow = (props) => (
     <Show {...props}>
         <SimpleShowLayout>
             <TextField source="id" />

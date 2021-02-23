@@ -8,7 +8,7 @@ import {
 } from "react-admin";
 import { ReviewsFilter } from "./ReviewsFilter";
 
-export const ReviewList = (props) => (
+export const ReviewsList = (props) => (
     <List filters={<ReviewsFilter />} {...props}>
         <Datagrid rowClick="show">
             <TextField source="id" />

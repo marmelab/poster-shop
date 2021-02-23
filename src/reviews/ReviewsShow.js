@@ -7,7 +7,7 @@ import {
     TextField,
 } from "react-admin";
 
-export const ReviewShow = (props) => (
+export const ReviewsShow = (props) => (
     <Show {...props}>
         <SimpleShowLayout>
             <TextField source="id" />

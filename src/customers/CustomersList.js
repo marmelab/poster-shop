@@ -10,7 +10,7 @@ import {
     TextField,
 } from "react-admin";
 import { CustomersFilter } from "./CustomersFilter";
-export const CustomerList = (props) => (
+export const CustomersList = (props) => (
     <List filters={<CustomersFilter />} {...props}>
         <Datagrid rowClick="show">
             <TextField source="first_name" />

@@ -5,7 +5,7 @@ import {
     SimpleShowLayout,
     TextField,
 } from "react-admin";
-export const PosterShow = (props) => (
+export const PostersShow = (props) => (
     <Show {...props}>
         <SimpleShowLayout>
             <TextField source="id" />
