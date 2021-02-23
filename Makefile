@@ -21,6 +21,9 @@ stop: ## Start project
 test: ## Launch the project's tests
 	@echo "Launch the tests"
 
+log: 
+	docker-compose logs -f
+	
 deploy:
 	rsync --delete -r -e "ssh -i ${pem}" --filter=':- .gitignore' \
 	./ ${user}@${host}:~/poster-shop
