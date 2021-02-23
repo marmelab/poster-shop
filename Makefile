@@ -7,9 +7,24 @@ help:
 
 install: ## Install project's dependencies
 	@echo "Install project deps"
+	docker-compose run --rm poster-shop yarn install
 
 start: ## Start project
 	@echo "Start the project"
+	docker-compose up -d
+
+
+stop: ## Start project
+	@echo "Start the project"
+	docker-compose down
 
 test: ## Launch the project's tests
 	@echo "Launch the tests"
+
+deploy:
+	rsync --delete -r -e "ssh -i ${pem}" --filter=':- .gitignore' \
+	./ ${user}@${host}:~/poster-shop
+	ssh -i ${pem} ${user}@${host} \
+	'cd poster-shop &&\
+	make install &&\
+	make start'
