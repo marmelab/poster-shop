@@ -2,7 +2,6 @@ import generateData from "data-generator-retail";
 import fakeDataProvider from "ra-data-fakerest";
 import React from "react";
 import { Admin, Resource } from "react-admin";
-import { authProvider } from "./providers/authProvider";
 import { CustomerList, CustomerShow } from "./resources/customers.js";
 import { OrderList, OrderShow } from "./resources/orders.js";
 import { PosterShow, PostersList } from "./resources/posters";
