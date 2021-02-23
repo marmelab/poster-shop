@@ -9,13 +9,9 @@ export const authProvider = {
         return Promise.resolve();
     },
     checkAuth: () => {
-        if (localStorage.getItem("username")) {
-            const loginSince = Date.now() - localStorage.getItem("loginTime");
-            return loginSince >= 30 * 60 * 1000
-                ? Promise.reject()
-                : Promise.resolve();
-        }
-        return Promise.reject();
+        return localStorage.getItem("username")
+            ? Promise.reject()
+            : Promise.resolve();
     },
     getPermissions: () => {
         if (localStorage.getItem("username") === "admin") {
