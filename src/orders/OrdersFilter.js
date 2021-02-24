@@ -2,6 +2,7 @@ import {
     AutocompleteInput,
     DateInput,
     Filter,
+    NumberInput,
     ReferenceInput,
     SearchInput,
     SelectInput,
@@ -26,5 +27,6 @@ export const OrdersFilter = (props) => (
             />
         </ReferenceInput>
         <DateInput label="Since" source="date_gte" />
+        <NumberInput label="Min amount" source="total_gte" />
     </Filter>
 );
