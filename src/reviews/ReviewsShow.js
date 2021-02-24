@@ -1,16 +1,17 @@
 import {
     DateField,
-    NumberField,
+    FunctionField,
+    ImageField,
     ReferenceField,
     Show,
     SimpleShowLayout,
     TextField,
 } from "react-admin";
+import { RatingField } from "./RatingField";
 
 export const ReviewsShow = (props) => (
     <Show {...props}>
         <SimpleShowLayout>
-            <TextField source="id" />
             <DateField source="date" />
             <TextField source="status" />
             <ReferenceField
@@ -18,23 +19,28 @@ export const ReviewsShow = (props) => (
                 reference="commands"
                 link="show"
             >
-                <TextField source="id" />
+                <TextField source="reference" />
             </ReferenceField>
             <ReferenceField
                 source="product_id"
                 reference="products"
                 link="show"
             >
-                <TextField source="reference" />
+                <ImageField source="thumbnail" />
             </ReferenceField>
             <ReferenceField
                 source="customer_id"
                 reference="customers"
                 link="show"
             >
-                <TextField source="id" />
+                <FunctionField
+                    label="Name"
+                    render={(record) =>
+                        `${record.first_name} ${record.last_name}`
+                    }
+                />
             </ReferenceField>
-            <NumberField source="rating" />
+            <RatingField source="rating" />
             <TextField source="comment" />
         </SimpleShowLayout>
     </Show>

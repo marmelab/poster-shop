@@ -1,6 +1,7 @@
 import {
     BooleanField,
     DateField,
+    FunctionField,
     NumberField,
     ReferenceField,
     Show,
@@ -11,7 +12,6 @@ import {
 export const OrdersShow = (props) => (
     <Show {...props}>
         <SimpleShowLayout>
-            <TextField source="id" />
             <TextField source="reference" />
             <DateField source="date" />
             <ReferenceField
@@ -19,13 +19,30 @@ export const OrdersShow = (props) => (
                 reference="customers"
                 link="show"
             >
-                <TextField source="id" />
+                <FunctionField
+                    label="Name"
+                    render={(record) =>
+                        `${record.first_name} ${record.last_name}`
+                    }
+                />
             </ReferenceField>
-            <NumberField source="total_ex_taxes" />
-            <NumberField source="delivery_fees" />
-            <NumberField source="tax_rate" />
-            <NumberField source="taxes" />
-            <NumberField source="total" />
+            <NumberField
+                source="total_ex_taxes"
+                options={{ style: "currency", currency: "USD" }}
+            />
+            <NumberField
+                source="delivery_fees"
+                options={{ style: "currency", currency: "USD" }}
+            />
+            <NumberField source="tax_rate" options={{ style: "percent" }} />
+            <NumberField
+                source="taxes"
+                options={{ style: "currency", currency: "USD" }}
+            />
+            <NumberField
+                source="total"
+                options={{ style: "currency", currency: "USD" }}
+            />
             <TextField source="status" />
             <BooleanField source="returned" />
         </SimpleShowLayout>

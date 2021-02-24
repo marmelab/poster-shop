@@ -2,10 +2,10 @@ import {
     BooleanField,
     Datagrid,
     DateField,
+    FunctionField,
     List,
     NumberField,
     ReferenceField,
-    ShowButton,
     TextField,
 } from "react-admin";
 import { OrdersFilter } from "./OrdersFilter";
@@ -13,7 +13,6 @@ import { OrdersFilter } from "./OrdersFilter";
 export const OrdersList = (props) => (
     <List filters={<OrdersFilter />} {...props}>
         <Datagrid rowClick="show">
-            <TextField source="id" />
             <TextField source="reference" />
             <DateField source="date" />
             <ReferenceField
@@ -21,16 +20,32 @@ export const OrdersList = (props) => (
                 reference="customers"
                 link="show"
             >
-                <TextField source="id" />
+                <FunctionField
+                    label="Name"
+                    render={(record) =>
+                        `${record.first_name} ${record.last_name}`
+                    }
+                />
             </ReferenceField>
-            <NumberField source="total_ex_taxes" />
-            <NumberField source="delivery_fees" />
-            <NumberField source="tax_rate" />
-            <NumberField source="taxes" />
-            <NumberField source="total" />
+            <NumberField
+                source="total_ex_taxes"
+                options={{ style: "currency", currency: "USD" }}
+            />
+            <NumberField
+                source="delivery_fees"
+                options={{ style: "currency", currency: "USD" }}
+            />
+            <NumberField source="tax_rate" options={{ style: "percent" }} />
+            <NumberField
+                source="taxes"
+                options={{ style: "currency", currency: "USD" }}
+            />
+            <NumberField
+                source="total"
+                options={{ style: "currency", currency: "USD" }}
+            />
             <TextField source="status" />
             <BooleanField source="returned" />
-            <ShowButton />
         </Datagrid>
     </List>
 );
