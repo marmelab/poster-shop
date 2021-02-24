@@ -10,8 +10,8 @@ export const authProvider = {
     },
     checkAuth: () => {
         return localStorage.getItem("username")
-            ? Promise.reject()
-            : Promise.resolve();
+            ? Promise.resolve()
+            : Promise.reject();
     },
     getPermissions: () => {
         if (localStorage.getItem("username") === "admin") {
