@@ -16,7 +16,11 @@ function App() {
         <Admin dataProvider={dataProvider} authProvider={authProvider}>
             <Resource name="products" {...posters} />
             <Resource name="customers" {...customers} />
-            <Resource name="commands" {...orders} />
+            <Resource
+                name="commands"
+                options={{ label: "Orders" }}
+                {...orders}
+            />
             <Resource name="reviews" {...reviews} />
         </Admin>
     );
