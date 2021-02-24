@@ -2,11 +2,11 @@ import generateData from "data-generator-retail";
 import fakeDataProvider from "ra-data-fakerest";
 import React from "react";
 import { Admin, Resource } from "react-admin";
-import customers from "./customers/index.js";
-import orders from "./orders/index.js";
-import posters from "./posters/index.js";
+import customers from "./customers";
+import orders from "./orders";
+import posters from "./posters";
 import { authProvider } from "./providers/authProvider.js";
-import reviews from "./reviews/index.js";
+import reviews from "./reviews";
 
 const data = generateData();
 const dataProvider = fakeDataProvider(data);
