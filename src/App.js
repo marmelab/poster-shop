@@ -5,7 +5,6 @@ import { Admin, Resource } from "react-admin";
 import customers from "./customers/index.js";
 import orders from "./orders/index.js";
 import posters from "./posters/index.js";
-import { PosterShopLayout } from "./PosterShopLayout.js";
 import { authProvider } from "./providers/authProvider.js";
 import reviews from "./reviews/index.js";
 
@@ -14,11 +13,7 @@ const dataProvider = fakeDataProvider(data);
 
 function App() {
     return (
-        <Admin
-            dataProvider={dataProvider}
-            authProvider={authProvider}
-            layout={PosterShopLayout}
-        >
+        <Admin dataProvider={dataProvider} authProvider={authProvider}>
             <Resource name="products" {...posters} />
             <Resource name="customers" {...customers} />
             <Resource name="commands" {...orders} />
