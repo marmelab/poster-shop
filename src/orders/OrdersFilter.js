@@ -1,5 +1,6 @@
 import {
     AutocompleteInput,
+    DateInput,
     Filter,
     ReferenceInput,
     SearchInput,
@@ -24,5 +25,6 @@ export const OrdersFilter = (props) => (
                 resettable={true}
             />
         </ReferenceInput>
+        <DateInput label="Since" source="date_gte" />
     </Filter>
 );
