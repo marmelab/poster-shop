@@ -13,6 +13,7 @@ export const CustomersList = (props) => (
         <Datagrid rowClick="show">
             <FunctionField
                 label="name"
+                sortBy="last_name"
                 render={(record) => (
                     <span>
                         {record.first_name} {record.last_name}

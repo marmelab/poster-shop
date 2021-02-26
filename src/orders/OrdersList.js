@@ -18,6 +18,7 @@ export const OrdersList = (props) => (
             <ReferenceField
                 source="customer_id"
                 reference="customers"
+                sortBy="last_name"
                 link="show"
             >
                 <FunctionField
