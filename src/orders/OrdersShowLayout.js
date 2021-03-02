@@ -1,10 +1,17 @@
-import { Grid, Switch, Typography } from "@material-ui/core";
-import { DateField, Labeled, SimpleShowLayout, TextField } from "react-admin";
+import { Grid, Typography } from "@material-ui/core";
+import {
+    BooleanField,
+    DateField,
+    Labeled,
+    ReferenceField,
+    ShowBase,
+    TextField,
+} from "react-admin";
 import { OrderItems } from "./OrderItems";
 
-export const OrdersShowLayout = ({ record, ...props }) => {
+export const OrdersShowLayout = (props) => {
     return (
-        <SimpleShowLayout>
+        <ShowBase {...props}>
             <Grid container>
                 <Grid item xs={12} sm={12} md={8}>
                     <Typography variant="h6" gutterBottom={true}>
@@ -13,46 +20,45 @@ export const OrdersShowLayout = ({ record, ...props }) => {
                     <Grid container>
                         <Grid item xs={12} sm={12} md={6}>
                             <Labeled source="date">
-                                <DateField
-                                    label="Date"
-                                    record={record}
-                                    source="date"
-                                />
+                                <DateField label="Date" source="date" />
                             </Labeled>
                         </Grid>
                         <Grid item xs={12} sm={12} md={6}>
                             <Labeled source="reference">
-                                <TextField
-                                    record={record}
-                                    source="reference"
-                                ></TextField>
+                                <TextField source="reference"></TextField>
                             </Labeled>
                         </Grid>
                     </Grid>
                     <Grid container>
                         <Grid item xs={12} sm={12} md={6}>
                             <Labeled source="status">
-                                <TextField record={record} source="status" />
+                                <TextField source="status" />
                             </Labeled>
                         </Grid>
                         <Grid item xs={12} sm={12} md={6}>
                             <Labeled source="returned">
-                                <Switch
-                                    checked={record.returned}
-                                    name="returned"
-                                />
+                                <BooleanField source="returned" />
                             </Labeled>
                         </Grid>
                     </Grid>
                 </Grid>
                 <Grid item xs={12} sm={12} md={4}>
                     <Typography>Customer</Typography>
+                    <ReferenceField
+                        label="Customer"
+                        source="customer_id"
+                        reference="customers"
+                        sortBy="last_name"
+                        link="show"
+                    >
+                        <TextField source="first_name" />
+                    </ReferenceField>
                 </Grid>
                 <Grid item xs={12} sm={12} md={12}>
                     <Typography>Items</Typography>
-                    <OrderItems record={record} {...props} />
+                    <OrderItems {...props} />
                 </Grid>
             </Grid>
-        </SimpleShowLayout>
+        </ShowBase>
     );
 };
