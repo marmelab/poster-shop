@@ -29,13 +29,13 @@ export const OrderItems = ({ record, ...props }) => {
                 </TableHead>
                 <TableBody>
                     {record.basket
-                        ? record.basket.map((row) => (
-                              <TableRow key={row.product_id}>
+                        ? record.basket.map((item) => (
+                              <TableRow key={item.product_id}>
                                   <TableCell>
                                       <ReferenceField
                                           source="product_id"
                                           reference="products"
-                                          record={row}
+                                          record={item}
                                           link="show"
                                           {...props}
                                       >
@@ -47,7 +47,7 @@ export const OrderItems = ({ record, ...props }) => {
                                           source="product_id"
                                           reference="products"
                                           resource="commands"
-                                          record={row}
+                                          record={item}
                                           link={false}
                                           basePath="/commands"
                                       >
@@ -61,13 +61,13 @@ export const OrderItems = ({ record, ...props }) => {
                                       </ReferenceField>
                                   </TableCell>
                                   <TableCell align="right">
-                                      {row.quantity}
+                                      {item.quantity}
                                   </TableCell>
                                   <TableCell align="right">
                                       <ReferenceFieldController
                                           source="product_id"
                                           reference="products"
-                                          record={row}
+                                          record={item}
                                           basePath="/commands"
                                       >
                                           {({ referenceRecord, ...props }) => {
@@ -77,7 +77,7 @@ export const OrderItems = ({ record, ...props }) => {
                                                           record={{
                                                               total: referenceRecord
                                                                   ? referenceRecord.price *
-                                                                    row.quantity
+                                                                    item.quantity
                                                                   : "-",
                                                           }}
                                                           source="total"
