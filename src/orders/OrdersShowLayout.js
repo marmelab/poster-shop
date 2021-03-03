@@ -14,7 +14,6 @@ import { OrderItems } from "./OrderItems";
 
 export const OrdersShowLayout = (props) => {
     const { record } = useRecordContext();
-    console.dir(props);
     return (
         <ShowView
             title={`Order #${record.id}`}
@@ -24,7 +23,7 @@ export const OrdersShowLayout = (props) => {
             hasShow={false}
         >
             <CardContentInner>
-                <Grid container>
+                <Grid container xs={12} sm={12} md={8}>
                     <Grid item xs={12} sm={12} md={8}>
                         <Grid container>
                             <Grid item xs={12} sm={12} md={6}>
