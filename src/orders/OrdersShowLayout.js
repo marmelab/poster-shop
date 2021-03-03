@@ -34,7 +34,7 @@ export const OrdersShowLayout = (props) => {
             hasShow={false}
         >
             <CardContentInner>
-                <Grid container xs={12} sm={12} md={8}>
+                <Grid container xs={12} sm={12} md={8} spacing="3">
                     <Grid item xs={12} sm={12} md={8}>
                         <Grid container>
                             <Grid item xs={12} sm={12} md={6}>
@@ -75,7 +75,7 @@ export const OrdersShowLayout = (props) => {
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Grid item xs={12} sm={12} md={4}>
+                    <Grid item xs={12} sm={12} md={4} spacing="3">
                         <Typography>Customer</Typography>
                         <ReferenceField
                             record={record}
@@ -95,11 +95,11 @@ export const OrdersShowLayout = (props) => {
                             />
                         </ReferenceField>
                     </Grid>
-                    <Grid item xs={12} sm={12} md={12}>
+                    <Grid item xs={12} sm={12} md={12} spacing="3">
                         <Typography>Items</Typography>
                         <OrderItems record={record} {...props} />
                     </Grid>
-                    <Grid item xs={12} sm={12} md={12}>
+                    <Grid item xs={12} sm={12} md={12} spacing="3">
                         <Typography>Totals</Typography>
                         <TableContainer component={Paper}>
                             <Table aria-label="items">
