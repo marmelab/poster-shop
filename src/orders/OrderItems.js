@@ -46,9 +46,10 @@ export const OrderItems = ({ record, ...props }) => {
                                       <ReferenceField
                                           source="product_id"
                                           reference="products"
+                                          resource="commands"
                                           record={row}
                                           link={false}
-                                          {...props}
+                                          basePath="/commands"
                                       >
                                           <NumberField
                                               source="price"
