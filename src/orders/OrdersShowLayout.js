@@ -1,64 +1,96 @@
 import { Grid, Typography } from "@material-ui/core";
 import {
     BooleanField,
+    CardContentInner,
     DateField,
+    FunctionField,
     Labeled,
     ReferenceField,
-    ShowBase,
+    ShowView,
     TextField,
+    useRecordContext,
 } from "react-admin";
 import { OrderItems } from "./OrderItems";
 
 export const OrdersShowLayout = (props) => {
+    const { record } = useRecordContext();
+    console.dir(props);
     return (
-        <ShowBase {...props}>
-            <Grid container>
-                <Grid item xs={12} sm={12} md={8}>
-                    <Typography variant="h6" gutterBottom={true}>
-                        Order
-                    </Typography>
-                    <Grid container>
-                        <Grid item xs={12} sm={12} md={6}>
-                            <Labeled source="date">
-                                <DateField label="Date" source="date" />
-                            </Labeled>
+        <ShowView
+            title={`Order #${record.id}`}
+            hasEdit={false}
+            hasCreate={false}
+            hasList={false}
+            hasShow={false}
+        >
+            <CardContentInner>
+                <Grid container>
+                    <Grid item xs={12} sm={12} md={8}>
+                        <Grid container>
+                            <Grid item xs={12} sm={12} md={6}>
+                                <Labeled source="date">
+                                    <DateField
+                                        record={record}
+                                        label="Date"
+                                        source="date"
+                                    />
+                                </Labeled>
+                            </Grid>
+                            <Grid item xs={12} sm={12} md={6}>
+                                <Labeled source="reference">
+                                    <TextField
+                                        record={record}
+                                        source="reference"
+                                    ></TextField>
+                                </Labeled>
+                            </Grid>
                         </Grid>
-                        <Grid item xs={12} sm={12} md={6}>
-                            <Labeled source="reference">
-                                <TextField source="reference"></TextField>
-                            </Labeled>
+                        <Grid container>
+                            <Grid item xs={12} sm={12} md={6}>
+                                <Labeled source="status">
+                                    <TextField
+                                        record={record}
+                                        source="status"
+                                    />
+                                </Labeled>
+                            </Grid>
+                            <Grid item xs={12} sm={12} md={6}>
+                                <Labeled source="returned">
+                                    <BooleanField
+                                        record={record}
+                                        source="returned"
+                                        valueLabelTrue="returned"
+                                    />
+                                </Labeled>
+                            </Grid>
                         </Grid>
                     </Grid>
-                    <Grid container>
-                        <Grid item xs={12} sm={12} md={6}>
-                            <Labeled source="status">
-                                <TextField source="status" />
-                            </Labeled>
-                        </Grid>
-                        <Grid item xs={12} sm={12} md={6}>
-                            <Labeled source="returned">
-                                <BooleanField source="returned" />
-                            </Labeled>
-                        </Grid>
+                    <Grid item xs={12} sm={12} md={4}>
+                        <Typography>Customer</Typography>
+                        <ReferenceField
+                            record={record}
+                            label="Customer"
+                            source="customer_id"
+                            reference="customers"
+                            sortBy="last_name"
+                            link="show"
+                            {...props}
+                        >
+                            <FunctionField
+                                resource="customers"
+                                label="Name"
+                                render={(record) =>
+                                    `${record.first_name} ${record.last_name}`
+                                }
+                            />
+                        </ReferenceField>
+                    </Grid>
+                    <Grid item xs={12} sm={12} md={12}>
+                        <Typography>Items</Typography>
+                        <OrderItems record={record} {...props} />
                     </Grid>
                 </Grid>
-                <Grid item xs={12} sm={12} md={4}>
-                    <Typography>Customer</Typography>
-                    <ReferenceField
-                        label="Customer"
-                        source="customer_id"
-                        reference="customers"
-                        sortBy="last_name"
-                        link="show"
-                    >
-                        <TextField source="first_name" />
-                    </ReferenceField>
-                </Grid>
-                <Grid item xs={12} sm={12} md={12}>
-                    <Typography>Items</Typography>
-                    <OrderItems {...props} />
-                </Grid>
-            </Grid>
-        </ShowBase>
+            </CardContentInner>
+        </ShowView>
     );
 };

@@ -1,8 +1,9 @@
-import { Show } from "react-admin";
+import { ShowBase } from "react-admin";
 import { OrdersShowLayout } from "./OrdersShowLayout";
-
-export const OrdersShow = (props) => (
-    <Show {...props}>
-        <OrdersShowLayout {...props} />
-    </Show>
-);
+export const OrdersShow = (props) => {
+    return (
+        <ShowBase {...props}>
+            <OrdersShowLayout {...props} />
+        </ShowBase>
+    );
+};
