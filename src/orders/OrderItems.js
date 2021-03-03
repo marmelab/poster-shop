@@ -68,15 +68,24 @@ export const OrderItems = ({ record, ...props }) => {
                                           source="product_id"
                                           reference="products"
                                           record={row}
-                                          {...props}
+                                          basePath="/commands"
                                       >
                                           {({ referenceRecord, ...props }) => {
                                               return (
                                                   <span>
-                                                      {referenceRecord
-                                                          ? referenceRecord.price *
-                                                            row.quantity
-                                                          : "-"}
+                                                      <NumberField
+                                                          record={{
+                                                              total: referenceRecord
+                                                                  ? referenceRecord.price *
+                                                                    row.quantity
+                                                                  : "-",
+                                                          }}
+                                                          source="total"
+                                                          options={{
+                                                              style: "currency",
+                                                              currency: "USD",
+                                                          }}
+                                                      />
                                                   </span>
                                               );
                                           }}
