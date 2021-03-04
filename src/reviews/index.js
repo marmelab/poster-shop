@@ -1,7 +1,8 @@
 import { ReviewsList } from "./ReviewsList";
 import { ReviewsShow } from "./ReviewsShow";
 
-export default {
+const reviews = {
     list: ReviewsList,
     show: ReviewsShow,
 };
+export default reviews;

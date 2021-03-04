@@ -1,7 +1,8 @@
 import { CustomersList } from "./CustomersList";
 import { CustomersShow } from "./CustomersShow";
 
-export default {
+const customers = {
     list: CustomersList,
     show: CustomersShow,
 };
+export default customers;

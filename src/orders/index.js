@@ -1,7 +1,7 @@
 import { OrdersList } from "./OrdersList";
 import { OrdersShow } from "./OrdersShow";
-
-export default {
+const orders = {
     list: OrdersList,
     show: OrdersShow,
 };
+export default orders;

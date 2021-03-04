@@ -5,11 +5,15 @@ import {
     FunctionField,
     List,
     NumberField,
-    TextField,
 } from "react-admin";
-import { CustomersFilter } from "./CustomersFilter";
+import { CustomerBulkActionButtons } from "./CustomerBulkActionButtons";
+import { CustomersFilterSidebar } from "./CustomersFiltersSidebar";
 export const CustomersList = (props) => (
-    <List filters={<CustomersFilter />} {...props}>
+    <List
+        aside={<CustomersFilterSidebar />}
+        bulkActionButtons={<CustomerBulkActionButtons />}
+        {...props}
+    >
         <Datagrid rowClick="show">
             <FunctionField
                 label="name"
@@ -26,7 +30,7 @@ export const CustomersList = (props) => (
                 source="total_spent"
                 options={{ style: "currency", currency: "USD" }}
             />
-            <TextField source="latest_purchase" />
+            <DateField source="latest_purchase" />
             <BooleanField source="has_newsletter" />
         </Datagrid>
     </List>

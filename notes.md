@@ -191,3 +191,5 @@ To solve this we have to set basePath property manually
 
 - Body margin has to be set to 0. Not found in the documentation...
 - ShowBase : if you don't use ShowView you'll have to take care of loading record lifecycle. ie: check if record exists
+
+- FilterLiveSearch doc doesn't mention the default behaviour of setting source='q' so by default a simple : <FilterLiveSearch/> would be enough.
