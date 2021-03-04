@@ -8,8 +8,13 @@ import {
     TextField,
 } from "react-admin";
 import { CustomersFilter } from "./CustomersFilter";
+import { CustomersFilterSidebar } from "./CustomersFiltersSidebar";
 export const CustomersList = (props) => (
-    <List filters={<CustomersFilter />} {...props}>
+    <List
+        filters={<CustomersFilter />}
+        aside={<CustomersFilterSidebar />}
+        {...props}
+    >
         <Datagrid rowClick="show">
             <FunctionField
                 label="name"
