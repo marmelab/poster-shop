@@ -133,9 +133,11 @@ export const OrdersShowLayout = (props) => {
                                     <TableRow>
                                         <TableCell>
                                             Tax(
-                                            {numeral(record.tax_rate).format(
-                                                "0%"
-                                            )}
+                                            {record
+                                                ? numeral(
+                                                      record.tax_rate
+                                                  ).format("0%")
+                                                : ""}
                                             )
                                         </TableCell>
                                         <TableCell align="right">
