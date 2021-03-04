@@ -6,9 +6,14 @@ import {
     List,
     NumberField,
 } from "react-admin";
+import { CustomerBulkActionButtons } from "./CustomerBulkActionButtons";
 import { CustomersFilterSidebar } from "./CustomersFiltersSidebar";
 export const CustomersList = (props) => (
-    <List aside={<CustomersFilterSidebar />} {...props}>
+    <List
+        aside={<CustomersFilterSidebar />}
+        bulkActionButtons={<CustomerBulkActionButtons />}
+        {...props}
+    >
         <Datagrid rowClick="show">
             <FunctionField
                 label="name"
