@@ -3,6 +3,11 @@ import {
     ArrayInput,
     AutocompleteInput,
     Create,
+    FormDataConsumer,
+    NumberField,
+    NumberInput,
+    ReferenceField,
+    ReferenceFieldController,
     ReferenceInput,
     required,
     SimpleForm,
@@ -38,6 +43,58 @@ export const OrderCreate = (props) => (
                             resettable={true}
                         />
                     </ReferenceInput>
+                    <NumberInput label="Quantity" source="quantity" />
+                    <FormDataConsumer>
+                        {({ scopedFormData }) => {
+                            return (
+                                <span>
+                                    <ReferenceField
+                                        source="product_id"
+                                        reference="products"
+                                        resource="commands"
+                                        record={scopedFormData}
+                                        link={false}
+                                        basePath="/commands"
+                                        label="Price"
+                                    >
+                                        <NumberField
+                                            source="price"
+                                            options={{
+                                                style: "currency",
+                                                currency: "USD",
+                                            }}
+                                        />
+                                    </ReferenceField>
+                                    <ReferenceFieldController
+                                        source="product_id"
+                                        reference="products"
+                                        record={scopedFormData}
+                                        basePath="/commands"
+                                    >
+                                        {({ referenceRecord, ...props }) => {
+                                            return (
+                                                <span>
+                                                    <NumberField
+                                                        record={{
+                                                            total: referenceRecord
+                                                                ? referenceRecord.price *
+                                                                  scopedFormData.quantity
+                                                                : "-",
+                                                        }}
+                                                        source="total"
+                                                        options={{
+                                                            style: "currency",
+                                                            currency: "USD",
+                                                        }}
+                                                    />
+                                                </span>
+                                            );
+                                        }}
+                                    </ReferenceFieldController>
+                                </span>
+                            );
+                        }}
+                    </FormDataConsumer>
                 </SimpleFormIterator>
             </ArrayInput>
         </SimpleForm>
