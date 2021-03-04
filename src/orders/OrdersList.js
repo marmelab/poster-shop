@@ -11,7 +11,7 @@ import {
 import { OrdersFilter } from "./OrdersFilter";
 
 export const OrdersList = (props) => (
-    <List filters={<OrdersFilter />} {...props}>
+    <List filters={<OrdersFilter />} title="Orders" {...props}>
         <Datagrid rowClick="show">
             <TextField source="reference" />
             <DateField source="date" />

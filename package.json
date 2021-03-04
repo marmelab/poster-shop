@@ -9,6 +9,7 @@
         "data-generator-retail": "^3.11.3",
         "date-fns": "^2.17.0",
         "fakerest": "^3.0.0",
+        "numeral": "^2.0.6",
         "ra-data-fakerest": "^3.9.3",
         "react": "^17.0.1",
         "react-admin": "^3.12.4",
@@ -17,8 +18,8 @@
         "web-vitals": "^1.0.1"
     },
     "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
+        "start": "node --max_old_space_size=2560 node_modules/.bin/react-scripts start",
+        "build": "node --max_old_space_size=2560 node_modules/.bin/react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
     },
