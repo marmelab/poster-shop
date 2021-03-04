@@ -15,7 +15,7 @@ import {
     TextField,
 } from "react-admin";
 
-export const OrderItems = ({ record, ...props }) => {
+export const OrderItems = ({ record }) => {
     return (
         <TableContainer component={Paper}>
             <Table aria-label="items">
@@ -35,9 +35,10 @@ export const OrderItems = ({ record, ...props }) => {
                                       <ReferenceField
                                           source="product_id"
                                           reference="products"
+                                          resource="commands"
                                           record={item}
                                           link="show"
-                                          {...props}
+                                          basePath="/commands"
                                       >
                                           <TextField source="reference" />
                                       </ReferenceField>

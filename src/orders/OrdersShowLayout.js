@@ -17,23 +17,16 @@ import {
     Labeled,
     NumberField,
     ReferenceField,
-    ShowView,
     TextField,
     useRecordContext,
 } from "react-admin";
 import { OrderItems } from "./OrderItems";
 
-export const OrdersShowLayout = (props) => {
+export const OrdersShowLayout = () => {
     const { record } = useRecordContext();
     return (
-        <ShowView
-            title={`Order #${record.id}`}
-            hasEdit={false}
-            hasCreate={false}
-            hasList={false}
-            hasShow={false}
-        >
-            <CardContentInner>
+        <CardContentInner>
+            {record && (
                 <Grid container xs={12} sm={12} md={8} spacing="3">
                     <Grid item xs={12} sm={12} md={8}>
                         <Grid container>
@@ -84,7 +77,7 @@ export const OrdersShowLayout = (props) => {
                             reference="customers"
                             sortBy="last_name"
                             link="show"
-                            {...props}
+                            basePath="/commands"
                         >
                             <FunctionField
                                 resource="customers"
@@ -97,7 +90,7 @@ export const OrdersShowLayout = (props) => {
                     </Grid>
                     <Grid item xs={12} sm={12} md={12} spacing="3">
                         <Typography>Items</Typography>
-                        <OrderItems record={record} {...props} />
+                        <OrderItems record={record} />
                     </Grid>
                     <Grid item xs={12} sm={12} md={12} spacing="3">
                         <Typography>Totals</Typography>
@@ -133,11 +126,9 @@ export const OrdersShowLayout = (props) => {
                                     <TableRow>
                                         <TableCell>
                                             Tax(
-                                            {record
-                                                ? numeral(
-                                                      record.tax_rate
-                                                  ).format("0%")
-                                                : ""}
+                                            {numeral(record.tax_rate).format(
+                                                "0%"
+                                            )}
                                             )
                                         </TableCell>
                                         <TableCell align="right">
@@ -174,7 +165,7 @@ export const OrdersShowLayout = (props) => {
                         </TableContainer>
                     </Grid>
                 </Grid>
-            </CardContentInner>
-        </ShowView>
+            )}
+        </CardContentInner>
     );
 };
