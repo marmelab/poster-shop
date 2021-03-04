@@ -5,7 +5,6 @@ import {
     FunctionField,
     List,
     NumberField,
-    TextField,
 } from "react-admin";
 import { CustomersFilter } from "./CustomersFilter";
 import { CustomersFilterSidebar } from "./CustomersFiltersSidebar";
@@ -31,7 +30,7 @@ export const CustomersList = (props) => (
                 source="total_spent"
                 options={{ style: "currency", currency: "USD" }}
             />
-            <TextField source="latest_purchase" />
+            <DateField source="latest_purchase" />
             <BooleanField source="has_newsletter" />
         </Datagrid>
     </List>
