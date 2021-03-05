@@ -35,7 +35,7 @@ export const BasketForm = () => {
                 <FormDataConsumer>
                     {({ scopedFormData, getSource }) => {
                         return (
-                            <span>
+                            <span source={getSource("fakeToAvoidWarning")}>
                                 <ReferenceField
                                     source="product_id"
                                     reference="products"
