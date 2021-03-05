@@ -82,10 +82,12 @@ export const OrderItems = ({ record }) => {
                                                               <span>
                                                                   <NumberField
                                                                       record={{
-                                                                          total: referenceRecord
-                                                                              ? referenceRecord.price *
-                                                                                item.quantity
-                                                                              : "-",
+                                                                          total:
+                                                                              referenceRecord &&
+                                                                              item.quantity
+                                                                                  ? referenceRecord.price *
+                                                                                    item.quantity
+                                                                                  : "-",
                                                                       }}
                                                                       source="total"
                                                                       options={{

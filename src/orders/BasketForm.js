@@ -35,12 +35,13 @@ export const BasketForm = () => {
                     <NumberInput
                         label="Quantity"
                         source="quantity"
+                        initialValue={1}
                         validate={required()}
                     />
                     <FormDataConsumer>
                         {({ getSource, scopedFormData }) => {
                             getSource();
-                            return (
+                            return scopedFormData ? (
                                 <Grid
                                     container
                                     spacing={3}
@@ -101,7 +102,7 @@ export const BasketForm = () => {
                                         </ReferenceFieldController>
                                     </Grid>
                                 </Grid>
-                            );
+                            ) : null;
                         }}
                     </FormDataConsumer>
                 </SimpleFormIterator>
