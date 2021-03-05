@@ -193,3 +193,4 @@ To solve this we have to set basePath property manually
 - ShowBase : if you don't use ShowView you'll have to take care of loading record lifecycle. ie: check if record exists
 
 - FilterLiveSearch doc doesn't mention the default behaviour of setting source='q' so by default a simple : <FilterLiveSearch/> would be enough.
+- Fields in FormDataConsumer : Warning on the console because of not using the getSource method, doc may be wrong on this https://marmelab.com/react-admin/Inputs.html#array-inputs
