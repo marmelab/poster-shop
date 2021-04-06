@@ -185,7 +185,7 @@ export const OrderItems = ({ record, ...props }) => {
     at TranslationProvider (http://localhost:3000/static/js/vendors~main.chunk.js:122942:28)
     at Provider (http://localhost:3000/static/js/vendors~main.chunk.js:209055:20)
     at CoreAdminContext (http://localhost:3000/static/js/vendors~main.chunk.js:114346:25)
-    ```
+```
 
 To solve this we have to set basePath property manually
 
